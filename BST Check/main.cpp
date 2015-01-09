@@ -20,7 +20,6 @@ void dellocateTree(Node * root) {
 		return;
 
 	if ( (root->left == NULL) &&  (root->right == NULL) ) {
-		root = NULL;
 		free(root);
 		return;
 	}
@@ -31,7 +30,6 @@ void dellocateTree(Node * root) {
 	if (root->right != NULL)
 		dellocateTree(root->right);
 
-	root = NULL;
 	free(root);
 }
 
