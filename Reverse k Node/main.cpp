@@ -111,37 +111,138 @@ Node *  reverseKList (Node * head, int k) {
 }
 
 
+//int main() {
+//
+//	Node * head = newNode(0);
+//	Node * node1 = newNode(1);
+//	head->next = node1;
+//
+//	Node * node2 = newNode(2);
+//	node1->next = node2;
+//
+//	Node * node3 = newNode(3);
+//	node2->next = node3;
+//	
+//	Node * node4 = newNode(4);
+//	node3->next = node4;
+//	/*
+//	Node * node5 = newNode(5);
+//	node4->next = node5;
+//
+//	Node * node6 = newNode(6);
+//	node5->next = node6;
+//
+//	Node * node7 = newNode(7);
+//	node6->next = node7;*/
+//
+//	//reverseKNode(head, 3);
+//	head = reverseKList(head,3);
+//	printList(head);
+//
+//	dellocateList(head);
+//	return 0;
+//
+//	
+//}
+
+// From here is the 2nd method: IMPROVEMENT
+// reverse K node from nodeStart to nodeEnd
+void reverseKNodeHelper(Node ** nodeStart, Node ** nodeEnd) {
+	Node * rHead = *nodeStart;
+	Node * curr_node = *nodeStart;
+	Node * prev_node = (*nodeEnd)->next;
+
+	if (curr_node->next == NULL) {
+		return;
+	}
+
+	Node * next_node = curr_node->next;
+
+	while(next_node != *nodeEnd) {
+		curr_node->next = prev_node;
+		prev_node = curr_node;
+
+		curr_node = next_node;
+		next_node = next_node->next;
+	}
+	curr_node->next = prev_node;
+	next_node->next = curr_node;
+
+	*nodeEnd = rHead;
+	*nodeStart = next_node;
+	
+}
+
+Node *  reverseKNode_2(Node * head, int k) {
+	int count  = 0;
+
+	if (head == NULL) return head;
+	if (head->next == NULL) return head;
+	
+	Node * startSection = head;
+	Node * endSection = head;
+	Node * newHead = NULL;
+	Node * connectNode = NULL;
+
+	while(endSection != NULL) {
+		count++; 
+		if (count == k)  {
+
+			if (connectNode) {
+				connectNode = newHead;
+				while( connectNode->next != startSection)
+					connectNode = connectNode->next;
+			} else {
+				connectNode = head;
+			}
+			
+			reverseKNodeHelper(&startSection, &endSection);
+			
+			if (!newHead) newHead = startSection;
+			else connectNode->next = startSection;
+
+			startSection = endSection->next;
+			
+			count = 0;
+		}
+		endSection = endSection->next;	
+	}
+	return newHead;
+}
+
+
+
 
 int main() {
-
-	Node * head = newNode(0);
-	Node * node1 = newNode(1);
+	// 3->2->2>11->7->5->11
+	Node * head = newNode(3);
+	Node * node1 = newNode(2);
 	head->next = node1;
 
 	Node * node2 = newNode(2);
 	node1->next = node2;
 
-	Node * node3 = newNode(3);
+	Node * node3 = newNode(11);
 	node2->next = node3;
 	
-	Node * node4 = newNode(4);
+	Node * node4 = newNode(7);
 	node3->next = node4;
-	/*
+	
 	Node * node5 = newNode(5);
 	node4->next = node5;
 
-	Node * node6 = newNode(6);
+	Node * node6 = newNode(11);
 	node5->next = node6;
 
-	Node * node7 = newNode(7);
-	node6->next = node7;*/
+	//printList(head);
+	//reverseKNodeHelper(&head, &node2);
+	head = reverseKNode_2(head, 3);
 
-	//reverseKNode(head, 3);
-	head = reverseKList(head,3);
 	printList(head);
 
 	dellocateList(head);
 	return 0;
 
-	
+
+	return 0;
 }
