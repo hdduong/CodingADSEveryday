@@ -119,6 +119,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test Palindromicity", "Test
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reverse all words", "Reverse all words\Reverse all words.vcxproj", "{1043ED37-C85D-4910-8B4E-F4F75301F4DF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Longest Parens Substring", "Longest Parens Substring\Longest Parens Substring.vcxproj", "{379857AE-5647-4165-88FF-57E241B80903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -317,6 +319,10 @@ Global
 		{1043ED37-C85D-4910-8B4E-F4F75301F4DF}.Debug|Win32.Build.0 = Debug|Win32
 		{1043ED37-C85D-4910-8B4E-F4F75301F4DF}.Release|Win32.ActiveCfg = Release|Win32
 		{1043ED37-C85D-4910-8B4E-F4F75301F4DF}.Release|Win32.Build.0 = Release|Win32
+		{379857AE-5647-4165-88FF-57E241B80903}.Debug|Win32.ActiveCfg = Debug|Win32
+		{379857AE-5647-4165-88FF-57E241B80903}.Debug|Win32.Build.0 = Debug|Win32
+		{379857AE-5647-4165-88FF-57E241B80903}.Release|Win32.ActiveCfg = Release|Win32
+		{379857AE-5647-4165-88FF-57E241B80903}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -371,5 +377,6 @@ Global
 		{0DF5FE26-D330-443C-8EB0-EE948E96B439} = {22918BB2-DE74-4B8F-B884-3E4745265072}
 		{407F4647-3164-4DA0-88DB-1A18C39305F5} = {22918BB2-DE74-4B8F-B884-3E4745265072}
 		{F1763BD3-6F04-476A-B563-73D54732D059} = {A64F96F9-3660-4AA0-AF5F-6329EBA7DAA3}
+		{379857AE-5647-4165-88FF-57E241B80903} = {A64F96F9-3660-4AA0-AF5F-6329EBA7DAA3}
 	EndGlobalSection
 EndGlobal
