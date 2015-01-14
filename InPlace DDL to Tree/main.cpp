@@ -18,6 +18,9 @@ Node * newNode(int data) {
 	return aNewNode;
 }
 
+
+
+
 void printInorderTree(Node *root) {
 	if (root == NULL) return;
 	printInorderTree(root->prev);

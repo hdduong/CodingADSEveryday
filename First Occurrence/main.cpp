@@ -25,6 +25,7 @@ void dellocateTree(Node * root) {
 		return;
 
 	if ( (root->left == NULL) &&  (root->right == NULL) ) {
+		root = NULL;
 		free(root);
 		return;
 	}
