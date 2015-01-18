@@ -29,16 +29,38 @@ void dellocateTree(Node * root) {
 		return;
 	}
 
-	if (root->left != NULL) 
-		dellocateTree(root->left);
+	//if (root->left != NULL) 
+	dellocateTree(root->left);
 
-	if (root->right != NULL)
-		dellocateTree(root->right);
+	//if (root->right != NULL)
+	dellocateTree(root->right);
 
-	root = NULL;
-	free(root);
+	//root = NULL;
+	//free(root);
 }
 
+Node * findWay2(Node * root, Node * nodeFound, vector<Node *> &way) {
+	if (root == NULL) return NULL;
+
+	if (root == nodeFound) {
+		way.push_back(root);
+		return root;
+	}
+
+	
+	Node * onLeft = findWay2(root->left, nodeFound, way);
+	if (onLeft != NULL) {
+		way.push_back(root);
+		return root;	
+	} else {
+		Node * onRight = findWay2(root->right, nodeFound, way);
+		if (onRight != NULL) {
+			way.push_back(root);
+			return root;
+		}
+	}
+	return NULL;
+}
 
 bool findWay(Node * root, vector<Node *> &way, Node * nodeFound) {
 	if (root == NULL) return false;
@@ -103,6 +125,7 @@ int main() {
 	Node * node5 = newNode(5);
 	Node * node6 = newNode(6);
 	Node * node7 = newNode(7);
+	Node * node8 = newNode(8);
 	
 	root->left = node2;
 	root->right = node5;
@@ -112,12 +135,22 @@ int main() {
 
 	node5->left = node6;
 	node6->left = node7;
+	
+	node5->right = node8;
+	// test findWay 2
 
+	vector<Node *> way;
+	Node * aWay = findWay2(root, node8, way);
+
+	for (vector<Node *>::iterator it = way.begin(); it != way.end(); it++) {
+		cout << (*it)->data << " ";
+	}
+	cout << endl;
 	//findLCS(root, node3, node7);
-	Node * result = findLCS(root, node3, node4);
+	/*Node * result = findLCS(root, node3, node4);
 	cout << result->data;
 	cout << endl;
-
+*/
 	dellocateTree(root);
 	return 0;
 }

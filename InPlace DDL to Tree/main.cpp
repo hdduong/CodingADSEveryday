@@ -38,14 +38,14 @@ void dellocateTree(Node * root) {
 		return;
 	}
 
-	if (root->prev != NULL) 
-		dellocateTree(root->prev);
+	//if (root->left != NULL) 
+	dellocateTree(root->prev);
 
-	if (root->next != NULL)
-		dellocateTree(root->next);
+	//if (root->right != NULL)
+	dellocateTree(root->next);
 
-	root = NULL;
-	free(root);
+	//root = NULL;
+	//free(root);
 }
 
 Node * getMiddleNode(Node * head) {
