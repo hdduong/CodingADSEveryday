@@ -18,14 +18,14 @@ Node * newNode (int data) {
 void dellocateTree(Node * root) {
 	if (root == NULL)
 		return;
-	
-	if ( (root->left == NULL) && (root->right == NULL) ) {
-		free(root);
-		return;
-	}
 
 	dellocateTree(root->left);
+
 	dellocateTree(root->right);
+
+	// Not sure why VS always throw error here
+	cout << "freeing " << root->data << endl;
+	free(root);
 }
 
 

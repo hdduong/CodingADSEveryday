@@ -23,20 +23,13 @@ void dellocateTree(Node * root) {
 	if (root == NULL)
 		return;
 
-	if ( (root->left == NULL) &&  (root->right == NULL) ) {
-		root = NULL;
-		free(root);
-		return;
-	}
-
-	//if (root->left != NULL) 
 	dellocateTree(root->left);
 
-	//if (root->right != NULL)
 	dellocateTree(root->right);
 
-	//root = NULL;
-	//free(root);
+	// Not sure why VS always throw error here
+	cout << "freeing " << root->data << endl;
+	free(root);
 }
 
 Node * findWay2(Node * root, Node * nodeFound, vector<Node *> &way) {

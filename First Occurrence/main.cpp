@@ -24,20 +24,15 @@ void dellocateTree(Node * root) {
 	if (root == NULL)
 		return;
 
-	if ( (root->left == NULL) &&  (root->right == NULL) ) {
-		root = NULL;
-		free(root);
-		return;
-	}
+	dellocateTree(root->left);
 
-	if (root->left != NULL) 
-		dellocateTree(root->left);
+	dellocateTree(root->right);
 
-	if (root->right != NULL)
-		dellocateTree(root->right);
-
+	// Not sure why VS always throw error here
+	cout << "freeing " << root->data << endl;
 	free(root);
 }
+
 
 Node * firstOccRec(Node * root, int data) {
 	if (root == NULL) return NULL;
