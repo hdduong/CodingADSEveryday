@@ -27,6 +27,10 @@ void dellocateTree(Node * root) {
 
 	// Not sure why VS always throw error here
 	cout << "freeing " << root->data << endl;
+	
+	root->left= NULL;
+	root->right= NULL;
+	root->parent = NULL;
 	free(root);
 }
 
@@ -159,7 +163,7 @@ int main() {
 
 	printInOrder(nodeI);
 	
-	//dellocateTree(nodeB);
+	dellocateTree(nodeI);
 
 	return 0;
 }
