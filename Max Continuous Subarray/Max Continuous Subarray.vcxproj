@@ -14,6 +14,7 @@
     <ProjectGuid>{7E9531A9-2D2C-4D0C-8694-77B018D03718}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MaxContinuousSubarray</RootNamespace>
+    <ProjectName>Max Continuous Sum Subarray</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
