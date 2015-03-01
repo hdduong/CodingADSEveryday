@@ -3,6 +3,12 @@
 
 using namespace std;
 
+void printArr(int * arr, int n) {
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] <<  " ";
+	}
+}
+
 // get index that arr[index] <= pivot
 int getLowerIndex(int * arr, int startArr, int endArr, int pivot) {
 	int mainMiddle = -1;
